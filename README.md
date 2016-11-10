@@ -1,14 +1,16 @@
-# PAML activity
+# Testing for selection using PAML
 
-## Online Resource
+## Online Resources
 
-- http://www.molecularevolution.org/resources/activities/paml_activity
+- Tutorial: http://www.molecularevolution.org/resources/activities/paml_activity
+- PAML software: http://abacus.gene.ucl.ac.uk/software/paml.html
+- Chi$^2$ calculator: http://www.di-mgt.com.au/chisquare-calculator.html
 
 The objective of this activity is to help you understand how to use different codon models, and how to test for selection using PAML, and specifically the CODEML program.
 
 ## Download and compile PAML
 
-```
+```bash
 cd /global/work/kursXY
 mkdir PAML
 cd PAML
@@ -21,18 +23,35 @@ cd ../../
 rm -R paml*
 ```
 
-## Download data files
+## Download data files for exercises
 
+```bash
+wget https://github.com/tonig-evo/workshop-paml/raw/master/paml_material.zip
+unzip paml_material.zip 
+```
 
+Please also download the materials folder to your local computer to be able to view the PDFs.
+
+# Exercises
 
 ## Maximum Likelihood estimation of $d_N/d_S$ ratio
 
 The objective of this activity is to use CODEML to evaluate the likelihood of the GstD1 sequences for a variety of $\omega$ values. Plot log-likelihood scores against the values of $\omega$ and determine the maximum likelihood estimate of $\omega$. Check your finding by running CODEML’s hill-climbing algorithm.
 
-1. Find the files for thisexercise material folder (paml_gstd1_codeml.ctl.ex1.txt, paml_gstd1_seqfile.txt) and familiarize yourself with them. When you are ready to run CODEML, rename the file paml_gstd1_codeml.ctl.ex1.txt, as this control file must be called **codeml.ctl**.
+1. Find the files for this exercise in the paml_material folder (paml_gstd1_codeml.ctl.ex1.txt, paml_gstd1_seqfile.txt) and familiarize yourself with them. When you are ready to run CODEML, rename the file paml_gstd1_codeml.ctl.ex1.txt, as this control file must be called **codeml.ctl**.
 2. Create a directory where you want your results to go, and place all your files within it. Now open a terminal, move to the directory that contains your files, and run CODEML.
-3. Familiarize yourself with the results (ex1_HelpFile.pdf). If you have not edited the control file the results will be written to a file called results.txt. Identify the line within the results file that gives the likelihood score for the example dataset.
-4. Now change the control files and re-run CODEML. The objective is to compute the likelihood of the example dataset given a fixed value of omega.
+
+```bash
+mkdir exercise1
+cp paml_material/paml_gstd1_codeml.ctl.ex1.txt exercise1/codeml.ctl
+cp paml_material/paml_gstd1_seqfile.txt exercise1/seqfile.txt
+cp codeml exercise1/
+cd exercise1
+./codeml
+```
+
+3. Familiarize yourself with the results (results.txt, paml_material/ex1_HelpFile.pdf). If you have not edited the control file the results will be written to a file called results.txt. Identify the line within the results file that gives the likelihood score for the example dataset.
+4. Now change the control files (e.g. with nano) and re-run CODEML. The objective is to compute the likelihood of the example dataset given a fixed value of omega.
 5. Change the name of your result file (via outfile= in the control file) or you will overwrite your previous results!
 6. Change the fixed value for omega by changing the value for omega= in the control file. The values for this exercise are provided as comments at the bottom of the example control file that has been provided to you.
 7. Repeat step 4 for each value of omega given in the comments of the example control file.
@@ -44,7 +63,7 @@ The objective of this activity is to use CODEML to evaluate the likelihood of th
 
 In this exercise you will investigate the sensitivity of your estimate of $\omega$ to the transition/transversion ratio ($\kappa$), and to the assumed model for codon frequencies ($\pi$i’s). After you collect the required data you will determine which assumptions yield the largest and smallest values of S, and what is the effect on $\omega$.
 
-1. Find the files for Exercise 2 on the workshop web-site (codeml.ctl.ex2, seqfile.txt) and familiarize yourself with them. It would be best to create a new directory for exercise 2.
+1. Find the files for exercise 2 in the **paml_material** folder (ex2_codeml.ctl, paml_gstd1_seqfile.txt) and familiarize yourself with them. Create a new directory for exercise 2, and copy the necessary files into that directory accordingly.
 2. Run CODEML using the settings in the control file for exercise 2. Familiarize yourself with the results (ex2_HelpFile.pdf). In addition to the likelihood score you must be able to identify the part of the result file that provides estimates of the following:
     - Number of synonymous or nonsynonymous sites (S and N)
     - Synonymous and nonsynonymous rates (dS and dN)
@@ -59,7 +78,7 @@ In this exercise you will investigate the sensitivity of your estimate of $\omeg
 
 The objective of this exercise is to use three LRTs to evaluate the following hypotheses: (1) the mutation rate of Ldh-C has increased relative to Ldh-A, (2) a burst of positive selection for functional divergence occurred following the duplication event that gave rise to Ldh-C, and (3) there was a long term shift in selective constraints following the duplication event that gave rise to Ldh-C.
 
-1. Obtain the files for Exercise 3 from the course web-site (codeml.ctl, seqfile.txt, treeH0.txt, treeH1.txt, treeH2.txt, treeH3.txt). The tree files represent different hypotheses denoted H0, H1, H2 & H3 (LDH_tree.pdf). These hypotheses represent the following concepts:
+1. Obtain the files for Exercise 3 from the **paml_material** folder (paml_ldh_codeml.ctl.txt, paml_ldh_seqfile.txt, paml_ldh_tree.H0.txt, paml_ldh_tree.H1.txt, paml_ldh_tree.H2.txt, paml_ldh_tree.H3.txt). The tree files represent different hypotheses denoted H0, H1, H2 & H3 (LDH_tree.pdf, Figure 1). These hypotheses represent the following concepts:
     - H0: homogeneous selection pressure over the tree
     - H1: episodic change in selection pressure in Ldh-C (only in the branch that immediately follows the gene duplication event).
     - H2: Long term shift in selection pressure in Ldh-C only; Ldh-C has a permanent change in selection pressure (as compared to its ancestors) whereas Ldh-A remains subject to the ancestral level of selection pressure.
@@ -73,11 +92,13 @@ The objective of this exercise is to use three LRTs to evaluate the following hy
     - H0 vs. H2
     - H2 vs. H3
 
+![Ldh gene tree. Branch labels indicate four different hypotheses (H0-H3) how this gene tree may have evolved.](LDH_gene_tree.png)
+
 ## Testing for adaptive evolution in the nef gene of human HIV-2
 
 The objective of this exercise is to use a series of LRTs to test for sites evolving under positive selection in the nef gene. If you find significant evidence for positive selection, then identify the involved sites by using empirical Bayes methods.
 
-1. Obtain all the files for exercise 4 from the course website (codeml.ctl, seqfile.txt, treeM0.txt, treeM1.txt, treeM2.txt, treeM3.txt, treeM7.txt, treeM8.txt).
+1. Obtain all the files for exercise 4 from the course website (ex4.codeml.ctl, paml_hiv2nef_seqfile.txt, treefile_M0.txt, treefile_M1.txt, treefile_M2.txt, treefile_M3.txt, treefile_M7.txt, treefile_M8.txt).
 2. If you plan to run two or more models at the same time, then create a separate directory for each run and place a sequence file, control file and tree file in each one.
 3. As in all the previous exercises, you will need to change the control file and re-run CODEML several times. In this case you will be fitting six different codon models (M0, M1a, M2a, M3, M7 & M8) to the example dataset.
     - If you are running your analyses sequentially in the same directory, then you should change the name of the main result file (via outfile= in the control file) or you will overwrite your previous results.
