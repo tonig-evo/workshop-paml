@@ -91,6 +91,7 @@ The objective of this exercise is to use three LRTs to evaluate the following hy
     - H0 vs. H1
     - H0 vs. H2
     - H2 vs. H3
+5. Design your own alternative hypothesis H4 that you find reasonable to test in this framework. Conduct the appropriate test with PAML and note the key statistics.
 
 ![Ldh gene tree. Branch labels indicate four different hypotheses (H0-H3) how this gene tree may have evolved.](LDH_gene_tree.png)
 
@@ -117,3 +118,5 @@ The objective of this exercise is to use a series of LRTs to test for sites evol
     - M1a vs. M2a (2 degrees of freedom)
     - M7 vs. M8 (2 degrees of freedom)
 6. Lastly, open the rst file generated when you ran model M3 (ex4_rst_HelpFile.pdf). Locate the columns of posterior probabilities for each site under the three site-categories of this model. Use these data to reproduce the plot shown in the slides.
+
+## Application of the partioning model in PAML
