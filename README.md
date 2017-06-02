@@ -136,6 +136,9 @@ Codeml implements a partioning model that is described in [Yang and Swanson, 200
         2. A partioned model
         3. A site specific model with two site classes
         4. A site specific model with three site classes
+    
+    - conduct an LRT chossing the appropriate d.f.
+    - What is the best model
 
 3. Randomly assign a partioning of data to the dataset (examples/lysin)
     - Run 100 different randomly assigned partitions (using the same number of partioned postions as in the original dataset)
@@ -145,3 +148,5 @@ Codeml implements a partioning model that is described in [Yang and Swanson, 200
 4. What biological "classifications" would be possible for a fixed site-model? Name at least 5 and discuss them briefly (Hint, you can choose maximum two examples for non-coding DNA).
 
 5. How could a fixed-site model contribute to an ecological research question (reflect to your own resarch project)?
+
+6. Suggest an alternative way to run partioned data in PAML.
