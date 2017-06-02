@@ -131,6 +131,7 @@ Codeml implements a partioning model that is described in [Yang and Swanson, 200
 
 2. Run the model using the example files provided in the paml directory (examples/lysin)
     - Compare the likihoods of 
+    
         (1) A non-partioned model (one omega)
         (2) A partioned model
         (3) A site specific model with two site classes
