@@ -142,6 +142,6 @@ Codeml implements a partioning model that is described in [Yang and Swanson, 200
     - Plot a histogram of the obtained likelihoods and indicate the original likelihood value
     - What is your conclusion on how well the initial classification reflected heterogenity of the evolutionary rates across classified sites?
 
-4. What biological "classifications" would be possible for a fixed site-model. Name at least 5 and discuss them briefly (Hint, you can choose maximum two examples for non-coding DNA)
+4. What biological "classifications" would be possible for a fixed site-model? Name at least 5 and discuss them briefly (Hint, you can choose maximum two examples for non-coding DNA).
 
-5. How could a fixed-site model contribute to an ecological research question (reflect to your own resarch project).
+5. How could a fixed-site model contribute to an ecological research question (reflect to your own resarch project)?
