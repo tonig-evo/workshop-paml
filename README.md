@@ -119,4 +119,25 @@ The objective of this exercise is to use a series of LRTs to test for sites evol
     - M7 vs. M8 (2 degrees of freedom)
 6. Lastly, open the rst file generated when you ran model M3 (ex4_rst_HelpFile.pdf). Locate the columns of posterior probabilities for each site under the three site-categories of this model. Use these data to reproduce the plot shown in the slides.
 
-## Application of the partioning model in PAML
+## Partioning model of PAML
+
+Codeml implements a partioning model that is described in [Yang and Swanson, 2002](mbev_19_01_0049.pdf). Please also look at the PAML manual.
+
+1. Read the manuscript by Yang and Swanson and answer the following questions:
+    - What is the motivation of Yang and Swanson to implement a partioned model
+    - What is the difference between a partioned model and site specific model with two site classes
+    - How do the authors address whether partioning models
+    - What do they conclude from their results regarding the partioning model
+
+2. Run the model using the example files provided in the paml directory (examples/lysin)
+    - Compare the likihoods of 
+        (1) A non-partioned model (one omega)
+        (2) A partioned model
+        (3) A site specific model with two site classes
+        (4) A site specific model with three site classes
+
+3. Randomly assign a partioning of data (using the same number of partioned postions)
+    - Run 100 different randomly assigned partitions
+    - Plot a histogram of the obtained likelihoods and indicate the original likelihood value
+
+4. What biological "classifications" would be possible for 
