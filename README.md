@@ -125,9 +125,9 @@ Codeml implements a partioning model that is described in [Yang and Swanson, 200
 
 1. Read the manuscript by Yang and Swanson and answer the following questions:
     - What is the motivation of Yang and Swanson to implement a partioned model
-    - What is the difference between a partioned model and site specific model with two site classes
-    - How do the authors address whether partioning models
-    - What do they conclude from their results regarding the partioning model
+    - What is the difference between a partioned model (fixed-site model) and site specific model with two site classes (random sites model)
+    - How do the authors test the power of the partioning model?
+    - What do they conclude from their results regarding the partioning model?
 
 2. Run the model using the example files provided in the paml directory (examples/lysin)
     - Compare the likihoods of 
@@ -136,8 +136,11 @@ Codeml implements a partioning model that is described in [Yang and Swanson, 200
         (3) A site specific model with two site classes
         (4) A site specific model with three site classes
 
-3. Randomly assign a partioning of data (using the same number of partioned postions)
-    - Run 100 different randomly assigned partitions
+3. Randomly assign a partioning of data to the dataset (examples/lysin)
+    - Run 100 different randomly assigned partitions (using the same number of partioned postions as in the original dataset)
     - Plot a histogram of the obtained likelihoods and indicate the original likelihood value
+    - What is your conclusion on how well the initial classification reflected heterogenity of the evolutionary rates across classified sites?
 
-4. What biological "classifications" would be possible for 
+4. What biological "classifications" would be possible for a fixed site-model. Name at least 5 and discuss them briefly (Hint, you can choose maximum two examples for non-coding DNA)
+
+5. How could a fixed-site model contribute to an ecological research question (reflect to your own resarch project).
